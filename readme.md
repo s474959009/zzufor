@@ -1,27 +1,19 @@
-## Laravel PHP Framework
+## 项目介绍
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+本项目由AlphaThink团队基于Laravel开发，为团队运营的微信公众号--**八点一刻**提供后台服务。面向郑州大学学生，提供成绩查询，失物招领等功能。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## 开发环境
 
-## Official Documentation
+* PHP 5.5.9
+* Laravel 5.3
+* EasyWeChat 3.0
+* Mysql 5.5.*
+* Redis 2.8.4
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## 成绩查询
+该功能最早是用Node.js开发，根据学号密码，实时在教务网爬成绩。后来发现郑大教务网经常出问题，每到期末使用高峰期，经常宕机。决定改用PHP重构完善功能，添加了用户、成绩信息的管理。当用户频繁查询、教务网出错的时候，直接从本地数据库取最新查询结果。方便查成绩的同时，减轻了教务网的访问压力。
 
-## Contributing
+## 失物招领
+传统的物品分类方式繁杂低效，开发该模块时将物品分类模式改为**用户自定义多标签**的形式，每个物品被赋予多个特征标签。把物品信息和标签信息存入Redis，利用Redis的数据结构特点，周期性的展示热频标签。根据标签失主能更快更准确的检索到物品。
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
